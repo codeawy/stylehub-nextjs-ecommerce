@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import CategorySectionSkeleton from "@/components/skeletons/CategoryCard";
 
 const CategorySection = dynamic(
   () =>
@@ -6,14 +7,14 @@ const CategorySection = dynamic(
       default: mod.CategorySection,
     })),
   {
-    loading: () => <h3>Loading Categories</h3>,
+    loading: () => <CategorySectionSkeleton />,
     ssr: true,
   }
 );
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
+    <div>
       <div className="text-4xl font-bold">StyleHub</div>
 
       <CategorySection />
